@@ -49,6 +49,7 @@ public class HardwarePushbot
         clawServoLeft = hwMap.servo.get("clawServoLeft");
         clawServoRight = hwMap.servo.get("clawServoRight");
 
+
         clawServoLeft.setPosition(CLAW_HOME);
         clawServoRight.setPosition(CLAW_HOME); //both of these ensure that at the point that the robot is turned on, the claw is at 0
 
