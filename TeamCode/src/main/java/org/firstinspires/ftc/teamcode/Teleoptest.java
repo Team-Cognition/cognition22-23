@@ -39,8 +39,8 @@ public class Teleoptest extends LinearOpMode {
     public final static double CLAW_HOME = 0.0; //Starting position
     public final static double CLAW_MIN_RANGE = 0.0; //Minimum value allowed
     public final static double CLAW_MAX_RANGE = 0.5; //Maximum Range: It might break past this point
-    public final double armpower = 0.5;
-    public final double armpower2 = -0.5;
+    public final double armpower = 1;
+    public final double armpower2 = -1;
 
     public void runOpMode() throws InterruptedException {
 
