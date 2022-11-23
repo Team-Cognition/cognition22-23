@@ -56,9 +56,9 @@ public class Teleoptest extends LinearOpMode {
 
 
         //Reverse front right and back right motors
-     //  motorFrontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
-     //   motorFrontRight.setDirection(DcMotorSimple.Direction.REVERSE);
-         motorBackLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+       motorFrontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+        motorFrontRight.setDirection(DcMotorSimple.Direction.REVERSE);
+       //  motorBackLeft.setDirection(DcMotorSimple.Direction.REVERSE);
         motorBackRight.setDirection(DcMotorSimple.Direction.REVERSE);
         arm.setDirection(DcMotorSimple.Direction.FORWARD);
 
@@ -78,7 +78,7 @@ public class Teleoptest extends LinearOpMode {
 
         while (opModeIsActive()) {
             double y = gamepad1.left_stick_y; // Remember, this is reversed!
-            double x = gamepad1.left_stick_x; // Counteract imperfect strafing
+            double x = -gamepad1.left_stick_x; // Counteract imperfect strafing
             double rx = gamepad1.right_stick_x;
 
             if ((runtime.seconds() > HALF_TIME) && !secondHalf) {
