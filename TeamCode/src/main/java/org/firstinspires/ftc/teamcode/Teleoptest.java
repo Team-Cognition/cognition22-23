@@ -21,7 +21,7 @@ public class Teleoptest extends LinearOpMode {
     Servo claw;
     DcMotor arm;
     double armPosition, gripPosition, contPower;
-    double MIN_POSITION = 0, MAX_POSITION = 1;
+    double MIN_POSITION = 0, MAX_POSITION = 0.5;
 
     // Declare variables
     boolean lastA = false;                      // Use to track the prior button state.
@@ -38,7 +38,7 @@ public class Teleoptest extends LinearOpMode {
     final double SERVOspeed = 0.01;
     public final static double CLAW_HOME = 0.0; //Starting position
     public final static double CLAW_MIN_RANGE = 0.0; //Minimum value allowed
-    public final static double CLAW_MAX_RANGE = 0.5; //Maximum Range: It might break past this point
+    public final static double CLAW_MAX_RANGE = 0.4; //Maximum Range: It might break past this point
     public final double armpower = 1;
     public final double armpower2 = -1;
 
