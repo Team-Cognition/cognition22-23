@@ -83,10 +83,10 @@ public class Teleoptest extends LinearOpMode {
         //servoDuckSpinner.setPower(servo_duckspinner_pos);
 
         //Reverse front right and back right motors
-       motorFrontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
-        motorFrontRight.setDirection(DcMotorSimple.Direction.REVERSE);
-       //  motorBackLeft.setDirection(DcMotorSimple.Direction.REVERSE);
-      //  motorBackRight.setDirection(DcMotorSimple.Direction.REVERSE);
+     //  motorFrontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+     //   motorFrontRight.setDirection(DcMotorSimple.Direction.REVERSE);
+         motorBackLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+        motorBackRight.setDirection(DcMotorSimple.Direction.REVERSE);
 
         //servoArm.setDirection(DcMotorSimple.Direction.REVERSE);
 
@@ -129,15 +129,19 @@ public class Teleoptest extends LinearOpMode {
                 arm.setPower(0);
             }
 
-            if (gamepad2.left_bumper) {
-                SERVOposition = Range.clip(SERVOposition, CLAW_MIN_RANGE, CLAW_MAX_RANGE);
-                claw.setPosition(SERVOposition);
+            if (gamepad2.left_trigger > 0.0 && gripPosition < MAX_POSITION) {
+           gripPosition=gripPosition+0.01;
+           telemetry.addData("bumperLeft", "hello");
             }
-            if (gamepad2.right_bumper) {
-                SERVOposition = Range.clip(SERVOposition, CLAW_MAX_RANGE, CLAW_MIN_RANGE);
-                claw.setPosition(SERVOposition);
+            if (gamepad2.right_trigger > 0.0 && gripPosition > MIN_POSITION) {
+              gripPosition=gripPosition-0.01;
+                telemetry.addData("bumperRight", "hi");
 
             }
+            telemetry.addData("gripPosition", gripPosition);
+            telemetry.update();
+            SERVOposition = Range.clip(gripPosition, CLAW_MIN_RANGE, CLAW_MAX_RANGE);
+            claw.setPosition(SERVOposition);
 
 /*
 
