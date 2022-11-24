@@ -123,10 +123,10 @@ public class Teleoptest extends LinearOpMode {
             double frontRightPower = (y - x - rx) / denominator;
             double backRightPower = (y + x - rx) / denominator;
             //Slower speed so that is easier to control
-            motorFrontLeft.setPower(frontLeftPower * 0.5);
-            motorBackLeft.setPower(backLeftPower * 0.5);
-            motorFrontRight.setPower(frontRightPower * 0.5);
-            motorBackRight.setPower(backRightPower * 0.5);
+            motorFrontLeft.setPower(frontLeftPower * 0.3);
+            motorBackLeft.setPower(backLeftPower * 0.4);
+            motorFrontRight.setPower(frontRightPower * 0.3);
+            motorBackRight.setPower(backRightPower * 0.3);
 
 
             telemetry.update();
