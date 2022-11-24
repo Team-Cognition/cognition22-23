@@ -42,16 +42,16 @@ public class HardwarePushbot
 //        lowerLeft  = hwMap.get(DcMotor.class, "lowerLeft");
 //        lowerRight  = hwMap.get(DcMotor.class, "lowerRight");
         upperLeft = hwMap.dcMotor.get("upperLeft"); //motorFrontLeft
-        upperRight = hwMap.dcMotor.get("lowerLeft"); //motorBackLeft
-        lowerLeft = hwMap.dcMotor.get("upperRight"); //motorFrontRight
+        upperRight = hwMap.dcMotor.get("upperRight"); //motorBackLeft
+        lowerLeft = hwMap.dcMotor.get("lowerLeft"); //motorFrontRight
         lowerRight = hwMap.dcMotor.get("lowerRight"); //motorBackRight
         arm = hwMap.dcMotor.get("arm");
-        clawServoLeft = hwMap.servo.get("clawServoLeft");
-        clawServoRight = hwMap.servo.get("clawServoRight");
+       // clawServoLeft = hwMap.servo.get("clawServoLeft");
+      //  clawServoRight = hwMap.servo.get("clawServoRight");
 
 
-        clawServoLeft.setPosition(CLAW_HOME);
-        clawServoRight.setPosition(CLAW_HOME); //both of these ensure that at the point that the robot is turned on, the claw is at 0
+    //    clawServoLeft.setPosition(CLAW_HOME);
+      //  clawServoRight.setPosition(CLAW_HOME); //both of these ensure that at the point that the robot is turned on, the claw is at 0
 
         // Reversing left motors
 //        upperLeft.setDirection(DcMotor.Direction.FORWARD );
