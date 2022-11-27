@@ -49,7 +49,7 @@ public class ConeMoversRtL extends LinearOpMode {
     public void MoveForward(long timeoutS) {
         if (opModeIsActive()) {
 
-            robot.setMotorPowers(TURN_SPEED, TURN_SPEED, TURN_SPEED, -TURN_SPEED, 0);
+            robot.setMotorPowers(TURN_SPEED, TURN_SPEED, TURN_SPEED, TURN_SPEED, 0);
             runtime.reset();
             sleep(timeoutS);
             robot.setMotorPowers(0);

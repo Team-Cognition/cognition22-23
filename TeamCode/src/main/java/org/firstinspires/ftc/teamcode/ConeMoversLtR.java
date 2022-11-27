@@ -31,18 +31,11 @@ public class ConeMoversLtR extends LinearOpMode {
         waitForStart();
         StrafeLeft(1200);
         sleep(1000);
-        MoveForward(850);
+        MoveForward(800);
         sleep(1000);
-        MoveBackward(1100);
-        StrafeLeft(2000);
-        TurnRight(2600);
-        MoveBackward(1200);
-        TurnLeft(0);
-        StrafeRight(0);
-
-
-
-        StrafeRight(0);
+        MoveBackward(500);
+        sleep(1000);
+        StrafeRight(5500);
     }
     //Motor 1: Reverse
     //Motor 2: Normal
@@ -58,38 +51,7 @@ public class ConeMoversLtR extends LinearOpMode {
         }
     }
 
-    public void TurnLeft(long timeoutB){
 
-        if (opModeIsActive()){
-
-            robot.setMotorPowers(-TURN_SPEED, -TURN_SPEED, -TURN_SPEED, -TURN_SPEED,0);
-            runtime.reset();
-            sleep(timeoutB);
-            robot.setMotorPowers(0);
-        }
-
-    }
-    public void TurnRight(long timeoutC){
-
-        if (opModeIsActive()){
-
-            robot.setMotorPowers(-TURN_SPEED, -TURN_SPEED, TURN_SPEED, TURN_SPEED,0);
-            runtime.reset();
-            sleep(timeoutC);
-            robot.setMotorPowers(0);
-        }
-
-    }
-    public void StrafeRight(long timeoutD) {
-
-        if (opModeIsActive()) {
-
-            robot.setMotorPowers(-TURN_SPEED, TURN_SPEED, TURN_SPEED, -TURN_SPEED, 0);
-            runtime.reset();
-            sleep(timeoutD);
-            robot.setMotorPowers(0);
-        }
-    }
     public void StrafeLeft(long timeoutE) {
 
         if (opModeIsActive()) {
@@ -108,19 +70,33 @@ public class ConeMoversLtR extends LinearOpMode {
 
         if (opModeIsActive()) {
 
-            robot.setMotorPowers(TURN_SPEED, -TURN_SPEED, -TURN_SPEED, TURN_SPEED, 0);
+            robot.setMotorPowers(TURN_SPEED, -TURN_SPEED, 1.2*-TURN_SPEED, TURN_SPEED, 0);
             runtime.reset();
             sleep(timeoutF);
             robot.setMotorPowers(0);
 
+
         }
 
+
+
+    }
+
+    public void StrafeRight(long timeoutD) {
+
+        if (opModeIsActive()) {
+
+            robot.setMotorPowers(-TURN_SPEED, -TURN_SPEED, -1.2*TURN_SPEED, -TURN_SPEED, 0);
+            runtime.reset();
+            sleep(timeoutD);
+            robot.setMotorPowers(0);
+        }
     }
 
 
 
 
-}
+    }
 
 
 
