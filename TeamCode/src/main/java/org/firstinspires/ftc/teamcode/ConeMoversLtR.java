@@ -56,7 +56,7 @@ public class ConeMoversLtR extends LinearOpMode {
 
         if (opModeIsActive()) {
 
-            robot.setMotorPowers(TURN_SPEED, TURN_SPEED, 1.2*TURN_SPEED, TURN_SPEED, 0);
+            robot.setMotorPowers(TURN_SPEED, TURN_SPEED, 1.5*TURN_SPEED, TURN_SPEED, 0); //changed ratio just for this because for some reason it was going crazy
             runtime.reset();
             sleep(timeoutE);
             robot.setMotorPowers(0);
