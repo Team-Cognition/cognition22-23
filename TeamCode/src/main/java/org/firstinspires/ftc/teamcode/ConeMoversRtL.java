@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-@Autonomous(name="ConeMoverRtL", group="Autonomous")
+@Autonomous(name="ConeMoverRtR_Blue", group="Autonomous")
 public class ConeMoversRtL extends LinearOpMode {
 
 
@@ -31,13 +31,13 @@ public class ConeMoversRtL extends LinearOpMode {
         waitForStart();
         StrafeRight(875);
         sleep(1000);
-        MoveForward(600);
+        MoveForward(500);
         sleep(1000);
         MoveBackward(600);
         sleep(1250);
         StrafeRight(1000);
-//        TurnRight(0);
-//        TurnLeft(0);
+        TurnLeft(2000);
+        TurnRight(0);
 
 
 
@@ -71,7 +71,7 @@ public class ConeMoversRtL extends LinearOpMode {
 
         if (opModeIsActive()){
 
-            robot.setMotorPowers(-TURN_SPEED, -TURN_SPEED, -TURN_SPEED, -TURN_SPEED,0);
+            robot.setMotorPowers(TURN_SPEED, TURN_SPEED, -TURN_SPEED, -TURN_SPEED,0);
             runtime.reset();
             sleep(timeoutB);
             robot.setMotorPowers(0);
@@ -82,7 +82,7 @@ public class ConeMoversRtL extends LinearOpMode {
 
         if (opModeIsActive()){
 
-            robot.setMotorPowers(TURN_SPEED, TURN_SPEED, TURN_SPEED, TURN_SPEED,0);
+            robot.setMotorPowers(-TURN_SPEED, -TURN_SPEED, TURN_SPEED, TURN_SPEED,0);
             runtime.reset();
             sleep(timeoutC);
             robot.setMotorPowers(0);

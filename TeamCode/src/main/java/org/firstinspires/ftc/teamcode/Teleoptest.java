@@ -17,14 +17,12 @@ public class Teleoptest extends LinearOpMode {
     DcMotor motorBackLeft;
     DcMotor motorFrontRight;
     DcMotor motorBackRight;
-    DcMotor servoArm;
     Servo claw;
     DcMotor arm;
-    double armPosition, gripPosition, contPower;
+    double armPosition, gripPosition;
     double MIN_POSITION = 0, MAX_POSITION = 0.5;
 
     // Declare variables
-    boolean lastA = false;                      // Use to track the prior button state.
     boolean secondHalf = false;                 // Use to hint the drivers for end game start
     final double HALF_TIME = 60.0;              // Wait this many seconds before alert for half-time
     ElapsedTime runtime = new ElapsedTime();    // Use to determine when end game is starting.
@@ -39,8 +37,8 @@ public class Teleoptest extends LinearOpMode {
     public final static double CLAW_HOME = 0.0; //Starting position
     public final static double CLAW_MIN_RANGE = 0.0; //Minimum value allowed
     public final static double CLAW_MAX_RANGE = 0.4; //Maximum Range: It might break past this point
-    public final double armpower = 1;
-    public final double armpower2 = -1;
+    public final double armpower = 1.25;
+    public final double armpower2 = -1.25;
 
     public void runOpMode() throws InterruptedException {
 
@@ -52,10 +50,9 @@ public class Teleoptest extends LinearOpMode {
         arm = hardwareMap.dcMotor.get("arm"); //Calling the arm
 
 
-        double quarterTurn = MOTOR_TICK_COUNT / 4;
 
 
-        //Reverse front right and back right motors
+        //Reverse front motors and back right motors
        motorFrontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
         motorFrontRight.setDirection(DcMotorSimple.Direction.REVERSE);
        //  motorBackLeft.setDirection(DcMotorSimple.Direction.REVERSE);
@@ -125,7 +122,7 @@ public class Teleoptest extends LinearOpMode {
             //Slower speed so that is easier to control
             double changeConstant = 1.75; // maintain ratio, change this to change speed of robot
             motorFrontLeft.setPower(frontLeftPower * 0.3 * changeConstant);
-            motorBackLeft.setPower(backLeftPower * 0.4 * changeConstant);
+            motorBackLeft.setPower(backLeftPower * 0.35 * changeConstant);
             motorFrontRight.setPower(frontRightPower * 0.3 * changeConstant);
             motorBackRight.setPower(backRightPower * 0.3 * changeConstant);
 

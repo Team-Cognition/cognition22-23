@@ -6,14 +6,14 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-@Autonomous(name="ConeMoverLtL_Red", group="Autonomous")
-public class ConeMoversLtR extends LinearOpMode {
+@Autonomous(name="ConeMoverRtM_Blue", group="Autonomous")
+public class ConeMoversRtM_Blue extends LinearOpMode {
 
 
     HardwarePushbot robot = new HardwarePushbot();   // Use a Pushbot's hardware
     private ElapsedTime runtime = new ElapsedTime();
 
-    static final double TURN_SPEED = 0.25;
+    static final double TURN_SPEED = 0.30;
 
     @Override
     public void runOpMode() {
@@ -29,21 +29,34 @@ public class ConeMoversLtR extends LinearOpMode {
         telemetry.update();
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
-        StrafeLeft(1400);
+        StrafeRight(900);
         sleep(1000);
         MoveForward(500);
         sleep(1000);
-        MoveBackward(650);
-        sleep(1000);
-        StrafeLeft(2500);
-        sleep(1000);
-        TurnRight(2800);
+        MoveBackward(600);
+        sleep(1250);
+        StrafeLeft(5000);
+//        TurnRight(0);
+//        TurnLeft(0);
 
+
+
+        StrafeRight(0);
     }
-    //Motor 1: Reverse
+    //Motor 1: Normal
     //Motor 2: Normal
     //Motor 3: Normal
     //Motor 4: Reverse
+    public void StrafeRight(long timeoutD) {
+        if (opModeIsActive()) {
+
+            robot.setMotorPowers(-TURN_SPEED, -TURN_SPEED,-1.2*TURN_SPEED, -TURN_SPEED, 0);
+            runtime.reset();
+            sleep(timeoutD);
+            robot.setMotorPowers(0);
+        }
+    }
+
     public void MoveForward(long timeoutS) {
         if (opModeIsActive()) {
 
@@ -54,16 +67,38 @@ public class ConeMoversLtR extends LinearOpMode {
         }
     }
 
+    public void TurnLeft(long timeoutB){
+
+        if (opModeIsActive()){
+
+            robot.setMotorPowers(-TURN_SPEED, -TURN_SPEED, -TURN_SPEED, -TURN_SPEED,0);
+            runtime.reset();
+            sleep(timeoutB);
+            robot.setMotorPowers(0);
+        }
+
+    }
+    public void TurnRight(long timeoutC){
+
+        if (opModeIsActive()){
+
+            robot.setMotorPowers(TURN_SPEED, TURN_SPEED, TURN_SPEED, TURN_SPEED,0);
+            runtime.reset();
+            sleep(timeoutC);
+            robot.setMotorPowers(0);
+        }
+
+    }
+
 
     public void StrafeLeft(long timeoutE) {
 
         if (opModeIsActive()) {
 
-            robot.setMotorPowers(TURN_SPEED, TURN_SPEED, 1.25*TURN_SPEED, TURN_SPEED, 0); //changed ratio just for this because for some reason it was going crazy
+            robot.setMotorPowers(TURN_SPEED, TURN_SPEED, 1.25 * TURN_SPEED, TURN_SPEED, 0); //changed ratio just for this because for some reason it was going crazy
             runtime.reset();
             sleep(timeoutE);
             robot.setMotorPowers(0);
-
         }
 
     }
@@ -73,42 +108,19 @@ public class ConeMoversLtR extends LinearOpMode {
 
         if (opModeIsActive()) {
 
-            robot.setMotorPowers(TURN_SPEED, -TURN_SPEED, -1.2*TURN_SPEED, TURN_SPEED, 0);
+            robot.setMotorPowers(TURN_SPEED, -TURN_SPEED, -TURN_SPEED, TURN_SPEED, 0);
             runtime.reset();
             sleep(timeoutF);
             robot.setMotorPowers(0);
 
-
-        }
-
-
-
-    }
-
-    public void StrafeRight(long timeoutD) {
-
-        if (opModeIsActive()) {
-
-            robot.setMotorPowers(-TURN_SPEED, -TURN_SPEED, -1.2 * TURN_SPEED, -TURN_SPEED, 0);
-            runtime.reset();
-            sleep(timeoutD);
-            robot.setMotorPowers(0);
-        }}
-        public void TurnRight(long timeoutC){
-
-            if (opModeIsActive()) {
-
-                robot.setMotorPowers(-TURN_SPEED, -TURN_SPEED, TURN_SPEED, TURN_SPEED, 0);
-                runtime.reset();
-                sleep(timeoutC);
-                robot.setMotorPowers(0);
-            }
         }
 
     }
 
 
 
+
+}
 
 
 
