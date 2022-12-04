@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-@Autonomous(name="ConeMoverLtM_Red", group="Autonomous")
+@Autonomous(name="ConeMoverLtM_Blue", group="Autonomous")
 public class ConeMoversLtM_Blue extends LinearOpMode {
 
 
@@ -31,7 +31,7 @@ public class ConeMoversLtM_Blue extends LinearOpMode {
         waitForStart();
         StrafeLeft(900);
         sleep(1000);
-        MoveForward(500);
+        MoveForward(400);
         sleep(1000);
         MoveBackward(600);
         sleep(1250);

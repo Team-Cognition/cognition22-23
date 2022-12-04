@@ -29,7 +29,7 @@ public class ConeMoversRtL extends LinearOpMode {
         telemetry.update();
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
-        StrafeRight(875);
+        StrafeRight(650);
         sleep(1000);
         MoveForward(500);
         sleep(1000);

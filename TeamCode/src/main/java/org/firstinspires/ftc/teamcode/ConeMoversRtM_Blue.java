@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-@Autonomous(name="ConeMoverRtM_Blue", group="Autonomous")
+@Autonomous(name="ConeMoverRtM_Red", group="Autonomous")
 public class ConeMoversRtM_Blue extends LinearOpMode {
 
 
@@ -20,16 +20,17 @@ public class ConeMoversRtM_Blue extends LinearOpMode {
 
         /*
          * Initialize the drive system variables.
+         *
          * The init() method of the hardware class does all the work here
          */
         robot.init(hardwareMap);
 
         // Send telemetry message to signify robot waiting;
-        telemetry.addData("Status", "Ready to run");    //
+        telemetry.addData("Status", "Ready to run");   //
         telemetry.update();
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
-        StrafeRight(900);
+        StrafeRight(800);
         sleep(1000);
         MoveForward(500);
         sleep(1000);
@@ -95,7 +96,7 @@ public class ConeMoversRtM_Blue extends LinearOpMode {
 
         if (opModeIsActive()) {
 
-            robot.setMotorPowers(TURN_SPEED, TURN_SPEED, 1.25 * TURN_SPEED, TURN_SPEED, 0); //changed ratio just for this because for some reason it was going crazy
+            robot.setMotorPowers(TURN_SPEED, TURN_SPEED, 1.1 * TURN_SPEED, TURN_SPEED, 0); //changed ratio just for this because for some reason it was going crazy
             runtime.reset();
             sleep(timeoutE);
             robot.setMotorPowers(0);
